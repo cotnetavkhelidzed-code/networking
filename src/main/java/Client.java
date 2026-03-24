@@ -1,11 +1,9 @@
 import java.io.IOException;
-import java.io.OutputStream;
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.net.InetAddress;
 
-public class Server {
+public class Client {
     public static void main(String[] args) throws IOException {
 //        ServerSocket serverSocket = new ServerSocket(5000);
 //        Socket socket = serverSocket.accept();
@@ -18,8 +16,15 @@ public class Server {
 //        serverSocket.close();
 
 
-        DatagramSocket socket = new DatagramSocket(6000);
+        DatagramSocket socket = new DatagramSocket();
 
+        byte[] data = "Hello UDP server".getBytes();
+
+        InetAddress address = InetAddress.getByName("localhost");
+
+        DatagramPacket packet = new DatagramPacket(data, data.length, address, 6000);
+
+        socket.send(packet);
 
     }
 }
