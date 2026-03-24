@@ -16,15 +16,15 @@ public class Client {
 //        serverSocket.close();
 
 
-        DatagramSocket socket = new DatagramSocket();
-
-        byte[] data = "Hello UDP server".getBytes();
-
-        InetAddress address = InetAddress.getByName("localhost");
-
-        DatagramPacket packet = new DatagramPacket(data, data.length, address, 6000);
-
-        socket.send(packet);
+//        DatagramSocket socket = new DatagramSocket();
+//
+//        byte[] data = "Hello UDP server".getBytes();
+//
+//        InetAddress address = InetAddress.getByName("localhost");
+//
+//        DatagramPacket packet = new DatagramPacket(data, data.length, address, 6000);
+//
+//        socket.send(packet);
 
     }
 }

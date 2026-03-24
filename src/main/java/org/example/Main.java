@@ -1,7 +1,7 @@
 package org.example;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.IOException;
+import java.net.*;
 import java.util.Scanner;
 
 public class Main {
@@ -35,7 +35,7 @@ public class Main {
 
     //------------------------------------------------------------------------------------------------------
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws IOException {
 
 //        InetAddress address = InetAddress.getLocalHost();
 //        System.out.println(address);
@@ -47,7 +47,24 @@ public class Main {
 //        }
 
 
+//        URL hp = new URL("http://www.itvet.ge/index.html");
+//
+//        System.out.println("Protocol: " + hp.getProtocol());
+//        System.out.println("Host: " + hp.getHost());
+//        System.out.println("File: " + hp.getFile());
+
+        int c;
+
+        URL hp = new URL("http://www.google.com");
+        URLConnection hpCon = hp.openConnection();
+
+        System.out.println("content type: " + hpCon.getContentType());
+
+        long len = hpCon.getContentLength();
+        if (len == -1) {
+            System.out.println("there is no information about length");
+        } else {
+            System.out.println("length: " + len);
+        }
     }
-
-
 }

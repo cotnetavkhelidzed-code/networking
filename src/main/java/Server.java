@@ -16,13 +16,13 @@ public class Server {
 //
 //        socket.close();
 
-        DatagramSocket socket = new DatagramSocket(6000);
-        byte[] buffer = new byte[1024];
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-        socket.receive(packet);
-        String message = new String(packet.getData(), 0, packet.getLength());
-        System.out.println("Received: " + message);
-        socket.close();
+//        DatagramSocket socket = new DatagramSocket(6000);
+//        byte[] buffer = new byte[1024];
+//        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+//        socket.receive(packet);
+//        String message = new String(packet.getData(), 0, packet.getLength());
+//        System.out.println("Received: " + message);
+//        socket.close();
 
     }
 }
