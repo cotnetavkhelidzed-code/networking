@@ -1,20 +1,25 @@
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.DatagramSocket;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client {
+public class Server {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", 5000);
+//        ServerSocket serverSocket = new ServerSocket(5000);
+//        Socket socket = serverSocket.accept();
+//
+//        OutputStream out = socket.getOutputStream();
+//
+//        out.write("Hello from server".getBytes());
+//
+//        socket.close();
+//        serverSocket.close();
 
-        InputStream in = socket.getInputStream();
 
-        int data;
+        DatagramSocket socket = new DatagramSocket(6000);
 
-        while ((data = in.read()) != -1){
-            System.out.print((char) data);
-        }
 
-        socket.close();
     }
 }
