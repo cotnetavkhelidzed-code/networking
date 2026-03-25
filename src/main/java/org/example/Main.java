@@ -1,8 +1,13 @@
 package org.example;
 
+import com.sun.net.httpserver.HttpContext;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+
 import java.io.IOException;
 import java.net.*;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
 
 public class Main {
 //    public static void main(String[] args) {
@@ -35,8 +40,8 @@ public class Main {
 
     //------------------------------------------------------------------------------------------------------
 
-    public static void main(String[] args) throws IOException {
-
+//    public static void main(String[] args) throws IOException {
+//
 //        InetAddress address = InetAddress.getLocalHost();
 //        System.out.println(address);
 //
@@ -45,26 +50,57 @@ public class Main {
 //        for (int i =0; i< sw.length; i++) {
 //            System.out.println(sw[i]);
 //        }
-
-
+//
+//
 //        URL hp = new URL("http://www.itvet.ge/index.html");
 //
 //        System.out.println("Protocol: " + hp.getProtocol());
 //        System.out.println("Host: " + hp.getHost());
-//        System.out.println("File: " + hp.getFile());
+//      System.out.println("File: " + hp.getFile());
+//
+//        int c;
+//
+//        URL hp = new URL("http://www.google.com");
+//        URLConnection hpCon = hp.openConnection();
+//
+//        System.out.println("content type: " + hpCon.getContentType());
+//
+//        long len = hpCon.getContentLength();
+//        if (len == -1) {
+//            System.out.println("there is no information about length");
+//        } else {
+//            System.out.println("length: " + len);
+//        }
+//    }
 
-        int c;
+//    public static void main(String[] args) throws Exception {
+//
+//        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+//
+//        server.createContext("/hello", new HelloHandler());
+//
+//        server.start();
+//    }
 
-        URL hp = new URL("http://www.google.com");
-        URLConnection hpCon = hp.openConnection();
+    public static void main(String[] args) throws Exception {
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080),0);
 
-        System.out.println("content type: " + hpCon.getContentType());
+        server.createContext("/hello", new MethodCheckHandler());
 
-        long len = hpCon.getContentLength();
-        if (len == -1) {
-            System.out.println("there is no information about length");
-        } else {
-            System.out.println("length: " + len);
-        }
+        server.start();
+
+        System.out.println("Server started: localhost:8080/hello");
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
