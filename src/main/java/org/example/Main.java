@@ -93,16 +93,29 @@ public class Main {
 //
 
 
+//    public static void main(String[] args) throws Exception{
+//
+//        HttpServer server = HttpServer.create(new InetSocketAddress(8080),0);
+//
+//        server.createContext("/hello", new HelloHandler());
+//
+//        server.start();
+//
+//        System.out.println("server started: localhost:8080/hello");
+//
+//    }
+
     public static void main(String[] args) throws Exception{
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080),0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
-        server.createContext("/hello", new HelloHandler());
+        server.createContext("/pupils", new HelloHandler());
 
         server.start();
 
-        System.out.println("server started: localhost:8080/hello");
-        
+        System.out.println("Server started: localhost:8080/pupils");
+
+
     }
 }
 
