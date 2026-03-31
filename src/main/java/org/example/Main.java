@@ -109,7 +109,7 @@ public class Main {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
-        server.createContext("/pupils", new HelloHandler());
+        server.createContext("/pupils", new PupilHandler());
 
         server.start();
 
