@@ -5,9 +5,11 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.*;
 import java.util.Scanner;
 import java.util.concurrent.Executor;
+
 
 public class Main {
 //    public static void main(String[] args) {
@@ -105,18 +107,34 @@ public class Main {
 //
 //    }
 
-    public static void main(String[] args) throws Exception{
+//    public static void main(String[] args) throws Exception{
+//
+//        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+//
+//        server.createContext("/pupils", new PupilHandler());
+//
+//        server.start();
+//
+//        System.out.println("Server started: localhost:8080/pupils");
+//
+//
+//    }
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+    public static void main(String[] args) {
+        Class<MyProgram> cl = MyProgram.class;
 
-        server.createContext("/pupils", new PupilHandler());
+        if (cl.isAnnotationPresent(AuthorInfo.class)) {
+            AuthorInfo info = cl.getAnnotation(AuthorInfo.class);
 
-        server.start();
+            System.out.println("Author: " + info.name());
+            System.out.println("Version: " + info.version());
 
-        System.out.println("Server started: localhost:8080/pupils");
-
-
+        }
+        MyProgram program = new MyProgram();
+        program.run();
     }
+
+
 }
 
 
